@@ -11,10 +11,13 @@ function makePageForEpisodes(episodeList) {
   const cardContainer = document.createElement('div')
   cardContainer.className = "cardContainer";
 
+  // Create episode cards within the card container
   episodeList.forEach((episode) => cardContainer.append(makeEpisodeCard(episode)));
+
   rootElem.append(cardContainer)
 }
 
+// Function to create individual card
 function makeEpisodeCard({ name, season, number, image, summary }) {
   // Create card
   const episodeCard = document.createElement("div");
@@ -43,7 +46,7 @@ function makeEpisodeCard({ name, season, number, image, summary }) {
   return episodeCard;
 }
 
-//helper function
+// Helper function - number padding
 function pad(num) {
   return num.toString().padStart(2, "0");
 }
