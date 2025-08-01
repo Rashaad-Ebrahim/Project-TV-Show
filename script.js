@@ -8,13 +8,15 @@ function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
 
   // Create card container
-  const cardContainer = document.createElement('div')
+  const cardContainer = document.createElement("div");
   cardContainer.className = "cardContainer";
 
   // Create episode cards within the card container
-  episodeList.forEach((episode) => cardContainer.append(makeEpisodeCard(episode)));
+  episodeList.forEach((episode) =>
+    cardContainer.append(makeEpisodeCard(episode))
+  );
 
-  rootElem.append(cardContainer)
+  rootElem.append(cardContainer);
 }
 
 // Function to create individual card
@@ -51,6 +53,12 @@ function pad(num) {
   return num.toString().padStart(2, "0");
 }
 
-console.log(getOneEpisode());
+const body = document.querySelector('body')
+console.log(body)
+const footer = document.createElement("footer");
+footer.className = "footer";
+footer.innerText = "The data on this page was provided by TVMaze.com"
+body.append(footer)
+
 
 window.onload = setup;
