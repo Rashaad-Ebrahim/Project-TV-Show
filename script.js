@@ -38,9 +38,11 @@ function makeEpisodeCard({ name, season, number, image, summary }) {
   episodeImg.alt = `${name} thumbnail`;
 
   // Add summary
-  const episodeSummary = document.createElement("div");
+  const episodeSummary = document.createElement("p");
   episodeSummary.className = "episode-summary";
-  episodeSummary.innerHTML = summary;
+
+  // Used regex to remove <p></p> tags from data
+  episodeSummary.textContent = summary.replace(/<[^>]+>/g, "");
 
   // Building card
   episodeCard.append(episodeTitle, episodeImg, episodeSummary);
@@ -53,12 +55,11 @@ function pad(num) {
   return num.toString().padStart(2, "0");
 }
 
-const body = document.querySelector('body')
-console.log(body)
+const body = document.querySelector("body");
+console.log(body);
 const footer = document.createElement("footer");
 footer.className = "footer";
-footer.innerText = "The data on this page was provided by TVMaze.com"
-body.append(footer)
-
+footer.innerText = "The data on this page was provided by TVMaze.com";
+body.append(footer);
 
 window.onload = setup;
