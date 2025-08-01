@@ -2,6 +2,12 @@
 function setup() {
   const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
+
+  // Footer
+  const footer = document.createElement("footer");
+  footer.className = "footer";
+  footer.innerText = "The data on this page was provided by TVMaze.com";
+  document.body.append(footer);
 }
 
 function makePageForEpisodes(episodeList) {
@@ -54,12 +60,5 @@ function makeEpisodeCard({ name, season, number, image, summary }) {
 function pad(num) {
   return num.toString().padStart(2, "0");
 }
-
-const body = document.querySelector("body");
-console.log(body);
-const footer = document.createElement("footer");
-footer.className = "footer";
-footer.innerText = "The data on this page was provided by TVMaze.com";
-body.append(footer);
 
 window.onload = setup;
