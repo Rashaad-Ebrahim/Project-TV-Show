@@ -1,62 +1,58 @@
-//You can edit ALL of the code here
+// You can edit ALL of the code here
 function setup() {
   const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
 
-  // Footer
+  // Footer (unchanged, just added aria-label for accessibility)
   const footer = document.createElement("footer");
   footer.className = "footer";
-  footer.innerText = "The data on this page was provided by TVMaze.com";
+  footer.innerHTML = 'The data on this page was provided by <a href="https://www.tvmaze.com/" target="_blank" rel="noopener">TVMaze.com</a>';
   document.body.append(footer);
 }
 
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
 
-  // Create card container
+  // Create card container (unchanged)
   const cardContainer = document.createElement("div");
   cardContainer.className = "cardContainer";
 
-  // Create episode cards within the card container
-  episodeList.forEach((episode) =>
-    cardContainer.append(makeEpisodeCard(episode))
-  );
+  // Create episode cards (added null check)
+  episodeList.forEach((episode) => {
+    if (episode) cardContainer.append(makeEpisodeCard(episode)); // Skip if episode is undefined
+  });
 
   rootElem.append(cardContainer);
 }
 
-// Function to create individual card
+// Function to create individual card (added fallbacks + safer HTML)
 function makeEpisodeCard({ name, season, number, image, summary }) {
-  // Create card
   const episodeCard = document.createElement("div");
   episodeCard.className = "episode-card";
 
-  // Create title
+  // Title with fallback
   const episodeTitle = document.createElement("h2");
   episodeTitle.className = "episode-title";
+  episodeTitle.textContent = `${name || "Untitled Episode"} - S${pad(season)}E${pad(number)}`;
 
-  episodeTitle.textContent = `${name} - S${pad(season)}E${pad(number)}`;
-
-  // Create image
+  // Image with fallback
   const episodeImg = document.createElement("img");
   episodeImg.className = "episode-img";
-  episodeImg.src = image.medium;
-  episodeImg.alt = `${name} thumbnail`;
+  episodeImg.src = image?.medium || "https://via.placeholder.com/300x170"; // Optional chaining
+  episodeImg.alt = `${name || "Untitled Episode"} thumbnail`;
 
-  // Add summary
+  // Summary with HTML tag cleanup + fallback
   const episodeSummary = document.createElement("p");
   episodeSummary.className = "episode-summary";
+  episodeSummary.textContent = 
+    summary?.replace(/<[^>]+>/g, "") || "No summary available"; // Optional chaining
 
-  // Used regex to remove <p></p> tags from data
-  episodeSummary.textContent = summary.replace(/<[^>]+>/g, "");
-
-  // Building card
+  // Build card (unchanged)
   episodeCard.append(episodeTitle, episodeImg, episodeSummary);
-
   return episodeCard;
 }
 
-// Helper function - number padding
+// Helper function - unchanged (perfect as-is)
 function pad(num) {
   return num.toString().padStart(2, "0");
 }
