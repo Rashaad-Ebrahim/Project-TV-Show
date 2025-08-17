@@ -123,3 +123,10 @@ h1 {
 .hidden {
   display: none !important;
 }
+
+.status-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #084b83;
+  margin-top: 2rem;
+}
