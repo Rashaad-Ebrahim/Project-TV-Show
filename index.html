@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
 
-  <header >
+  <header>
     <nav class="controls">
       <div class="search-container">
         <input type="text" id="search" placeholder="Search episodes..." />
@@ -25,11 +25,11 @@
   </header>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="status-message" class="status-message"></div>
+    </div>
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
-
     <!-- Loads YOUR javascript code -->
     <script src="script.js"></script>
   </body>
