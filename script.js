@@ -76,9 +76,9 @@ function setupEpisodeSelector() {
       makePageForEpisodes(currentEpisodes);
       return;
     }
-    const [season, number] = e.target.value.match(/S(\d+)E(\d+)/) // tried to update to this from .split cause of the what if value is not in the format S01E01
+    const [, season, number] = e.target.value.match(/S(\d+)E(\d+)/) // tried to update to this from .split cause of the what if value is not in the format S01E01
     const selected = allEpisodes.find(ep =>
-      ep.season == season && ep.number == number
+      ep.season == parseInt(season) && ep.number == parseInt(number)
     );
     
     if (selected) {
