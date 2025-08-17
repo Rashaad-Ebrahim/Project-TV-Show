@@ -6,6 +6,9 @@
 /* I can't take credit entirely for the CSS below, my friend chatGPT helped me so that my page could look a little pretty */
 
 /* Container for all episode cards */
+h1 {
+  text-align: center;
+}
 .cardContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -24,13 +27,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .episode-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 /* Title */
@@ -81,7 +84,8 @@
   align-items: center;
 }
 /* Search and select containers */
-.search-container, .select-container {
+.search-container,
+.select-container {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -118,4 +122,11 @@
 /* hide & show */
 .hidden {
   display: none !important;
+}
+
+.status-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #084b83;
+  margin-top: 2rem;
 }
