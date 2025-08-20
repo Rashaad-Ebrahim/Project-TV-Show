@@ -7,10 +7,15 @@
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
-<body>
+  <body>
     <header class="site-header">
       <h1>TV Show Project</h1>
       <nav>
+        <div>
+          <button id="back-to-shows-button" style="display: none">
+            << Back to Shows
+          </button>
+        </div>
         <!-- New select element for choosing a show. -->
         <div id="show-selector-container">
           <label for="show-selector">Choose a show:</label>
@@ -45,6 +50,9 @@
     </header>
 
     <main id="root">
+      <div class="shows-container" id="shows-container">
+        <!-- Show cards will be inserted here -->
+      </div>
       <div class="episodes-container" id="episodes-container">
         <!-- Episodes inserted here -->
       </div>
