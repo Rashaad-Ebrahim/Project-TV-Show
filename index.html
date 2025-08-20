@@ -7,15 +7,57 @@
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
+<body>
+    <header class="site-header">
+      <h1>TV Show Project</h1>
+      <nav>
+        <!-- New select element for choosing a show. -->
+        <div id="show-selector-container">
+          <label for="show-selector">Choose a show:</label>
+          <select id="show-selector">
+            <option value="">-- Select a show --</option>
+          </select>
+        </div>
 
-  <body>
-    <div id="root">
-    </div>
+        <div id="search-container">
+          <label for="episode-search">
+            <input
+              type="search"
+              id="episode-search"
+              name="Search"
+              placeholder="Search episodes..."
+            />
+          </label>
+          <span id="results-count"></span>
+        </div>
 
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
+        <div id="episode-selector-container">
+          <label for="episode-selector">Jump to Episode:</label>
+          <select id="episode-selector">
+            <option value="">-- Select an episode --</option>
+          </select>
+          <button id="reset-button" style="display: none">
+            Show All Episodes
+          </button>
+        </div>
+      </nav>
+      <div id="status-message"></div>
+    </header>
 
-    <!-- Loads YOUR javascript code -->
+    <main id="root">
+      <div class="episodes-container" id="episodes-container">
+        <!-- Episodes inserted here -->
+      </div>
+    </main>
+    <footer class="site-footer">
+      <p>
+        Data originally from
+        <a href="https://www.tvmaze.com/" target="_blank" rel="noopener"
+          >TVMaze.com</a
+        >
+      </p>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
