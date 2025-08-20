@@ -7,30 +7,57 @@
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
+<body>
+    <header class="site-header">
+      <h1>TV Show Project</h1>
+      <nav>
+        <!-- New select element for choosing a show. -->
+        <div id="show-selector-container">
+          <label for="show-selector">Choose a show:</label>
+          <select id="show-selector">
+            <option value="">-- Select a show --</option>
+          </select>
+        </div>
 
-  <header>
-    <nav class="controls">
-      <div class="search-container">
-        <input type="text" id="search" placeholder="Search episodes..." />
-        <span id="search-count"></span>
+        <div id="search-container">
+          <label for="episode-search">
+            <input
+              type="search"
+              id="episode-search"
+              name="Search"
+              placeholder="Search episodes..."
+            />
+          </label>
+          <span id="results-count"></span>
+        </div>
+
+        <div id="episode-selector-container">
+          <label for="episode-selector">Jump to Episode:</label>
+          <select id="episode-selector">
+            <option value="">-- Select an episode --</option>
+          </select>
+          <button id="reset-button" style="display: none">
+            Show All Episodes
+          </button>
+        </div>
+      </nav>
+      <div id="status-message"></div>
+    </header>
+
+    <main id="root">
+      <div class="episodes-container" id="episodes-container">
+        <!-- Episodes inserted here -->
       </div>
-      <div class="select-container">
-        <select id="episode-selector">
-          <option value="">All Episodes</option>
-        </select>
-        <button id="reset-btn">Show All</button>
-      </div>
-    </nav>
-    <h1>TV Show Project</h1>
-  </header>
+    </main>
+    <footer class="site-footer">
+      <p>
+        Data originally from
+        <a href="https://www.tvmaze.com/" target="_blank" rel="noopener"
+          >TVMaze.com</a
+        >
+      </p>
+    </footer>
 
-  <body>
-    <div id="root">
-      <div id="status-message" class="status-message"></div>
-    </div>
-
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <!-- Loads YOUR javascript code -->
     <script src="script.js"></script>
   </body>
 </html>
